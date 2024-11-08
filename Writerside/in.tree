@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="in"
+                 name="Instance Name"
+                 start-page="starter.md">
+
+    <toc-element topic="starter.md"/>
+    <toc-element topic="Dynamic-vs-Static-Typing.md"/>
+    <toc-element topic="What-is-TypeScript.md"/>
+    <toc-element topic="TypeScript-Setup.md"/>
+    <toc-element topic="tsconfig.md"/>
+    <toc-element topic="Primitive-types.md"/>
+    <toc-element topic="Implicit-vs-Explicit-typing.md"/>
+    <toc-element topic="Arrays-and-Tuples.md"/>
+    <toc-element topic="Literals-and-Enums.md"/>
+    <toc-element topic="Any-Unknown-and-Type-Casts.md"/>
+    <toc-element topic="Optional-Chaining-and-Bang.md"/>
+    <toc-element topic="Function-types.md"/>
+    <toc-element topic="Advanced-Function-Types.md"/>
+    <toc-element topic="Interfaces.md"/>
+    <toc-element topic="Classes-and-Abstract-Classes.md"/>
+    <toc-element topic="Classes-and-Interfaces.md"/>
+    <toc-element topic="Static-Attributes-and-Methods.md"/>
+    <toc-element topic="Generics.md"/>
+    <toc-element topic="Type-aliases.md"/>
+    <toc-element topic="Union-and-Intersection.md"/>
+    <toc-element topic="Type-Guards.md"/>
+    <toc-element topic="Utility-types.md"/>
+    <toc-element topic="Modules.md"/>
+</instance-profile>

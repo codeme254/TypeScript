@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-08T11:54:02.28457"><title>TypeScript Setup | Instance Name</title><script type="application/json" id="virtual-toc-data">[{"id":"your-first-typescript-code","level":0,"title":"Your first TypeScript code!","anchor":"#your-first-typescript-code"},{"id":"making-work-easier-with-vite","level":0,"title":"Making work easier with vite","anchor":"#making-work-easier-with-vite"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="TypeScript Setup | Instance Name"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Instance Name Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/typescript-setup.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="TypeScript Setup | Instance Name"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/typescript-setup.html#webpage",
+    "url": "writerside-documentation/typescript-setup.html",
+    "name": "TypeScript Setup | Instance Name",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Instance Name Help"
+}</script><!-- End Schema.org --></head><body data-id="TypeScript-Setup" data-main-title="TypeScript Setup" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Instance Name  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="TypeScript-Setup" id="TypeScript-Setup.md">TypeScript Setup</h1><p id="pmhl9i_3">First, make sure that you have Node.js installed:</p><div class="code-block" data-lang="bash">
+node --version
+</div><p id="pmhl9i_5">If you get a version number back, it means Node.js is installed, and you can proceed to the next step, anything else means that Node.js is not installed. <a href="https://nodejs.org/en/download/prebuilt-installer" id="pmhl9i_20" data-external="true" rel="noopener noreferrer">Download and install from here</a></p><p id="pmhl9i_6">Next, install typescript globally using npm</p><div class="code-block" data-lang="bash">
+npm install -g typescript
+</div><p id="pmhl9i_8">To confirm whether the installation worked, typed <code class="code" id="pmhl9i_21">tsc</code> on the terminal/command prompt window, it should give you some sort of output but not an error.</p><p id="pmhl9i_9">In case there is an error, for Windows users, try to open the command prompt in administrator mode, for Mac/Linux user, run the command above as super admin ie <code class="code" id="pmhl9i_22">sudo npm install -g typescript</code>.</p><p id="pmhl9i_10">Next, navigate to your project folder and initialize a package.json file by running the command below:</p><div class="code-block" data-lang="bash">
+npm init -y
+</div><p id="pmhl9i_12">Now, install typescript to your project as a development dependency.</p><div class="code-block" data-lang="bash">
+npm install typescript --save-dev
+</div><p id="pmhl9i_14">Whenever working with TypeScript, we have to provide a configuration file that tells TypeScript how to behave.</p><p id="pmhl9i_15">To do this, run the following command:</p><div class="code-block" data-lang="bash">
+npx tsc --init
+</div><p id="pmhl9i_17">This creates a new TypeScript configuration file in the current project directory, this file has different options that the compiler will use when compiling our TypeScript code to JavaScript code.</p><section class="chapter"><h2 id="your-first-typescript-code" data-toc="your-first-typescript-code">Your first TypeScript code!</h2><p id="pmhl9i_23">With the above setup complete, let's now write our first TypeScript code.</p><p id="pmhl9i_24">Inside your project directory, create a file <code class="code" id="pmhl9i_32">hello.ts</code> with the following code:</p><div class="code-block" data-lang="ts">
+const value: number = 5;
+console.log(number);
+</div><p id="pmhl9i_26">To execute the code above, we need to convert it to JavaScript code first and then execute the generated JavaScript code.</p><p id="pmhl9i_27">To do this, navigate to where the file <code class="code" id="pmhl9i_33">hello.ts</code> lives and run the following command:</p><div class="code-block" data-lang="ts">
+tsc hello.ts
+</div><p id="pmhl9i_29">This will generate a hello.js file with the following code:</p><div class="code-block" data-lang="javascript">
+var value = 5;
+console.log(value);
+</div><p id="pmhl9i_31">We can now execute this Javascript file with node.</p></section><section class="chapter"><h2 id="making-work-easier-with-vite" data-toc="making-work-easier-with-vite">Making work easier with vite</h2><div class="code-block" data-lang="bash">
+npm init vite PROJECT_NAME -- --template vanilla-ts
+</div><p id="pmhl9i_35">Let's create a project called <code class="code" id="pmhl9i_37">hello-ts</code>:</p><div class="code-block" data-lang="bash">
+npm init vite hello-ts -- --template vanilla-ts
+</div></section><div class="last-modified">Last modified: 08 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="what-is-typescript.html" class="navigation-links__prev">What is TypeScript</a><a href="tsconfig.html" class="navigation-links__next">tsconfig</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

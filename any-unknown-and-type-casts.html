@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-08T11:54:02.28457"><title>Any, Unknown and Type Casts | Instance Name</title><script type="application/json" id="virtual-toc-data">[{"id":"any-type","level":0,"title":"any type","anchor":"#any-type"},{"id":"unknown","level":0,"title":"unknown","anchor":"#unknown"},{"id":"type-casting","level":0,"title":"type casting","anchor":"#type-casting"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Any, Unknown and Type Casts | Instance Name"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Instance Name Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/any-unknown-and-type-casts.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Any, Unknown and Type Casts | Instance Name"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/any-unknown-and-type-casts.html#webpage",
+    "url": "writerside-documentation/any-unknown-and-type-casts.html",
+    "name": "Any, Unknown and Type Casts | Instance Name",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Instance Name Help"
+}</script><!-- End Schema.org --></head><body data-id="Any-Unknown-and-Type-Casts" data-main-title="Any, Unknown and Type Casts" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Instance Name  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Any-Unknown-and-Type-Casts" id="Any-Unknown-and-Type-Casts.md">Any, Unknown and Type Casts</h1><section class="chapter"><h2 id="any-type" data-toc="any-type">any type</h2><p id="-f4nc80_6">any type allows for flexible typing but sacrifices type safety as it lacks compile-time type checking.</p><p id="-f4nc80_7">What this means is that x can hold variable of any data type.</p><div class="code-block" data-lang="ts">
+let myVariable: any = 5;
+myVariable = &quot;john doe&quot;;
+myVariable = true;
+myVariable = [1, 5, 1, 2, 9];
+</div></section><section class="chapter"><h2 id="unknown" data-toc="unknown">unknown</h2><p id="-f4nc80_9">The unknown type is a type-safe counterpart to the 'any' type.</p><p id="-f4nc80_10">It provides a powerful way to handle values of uncertain type while maintaining type safety.</p><p id="-f4nc80_11">With the unknown type, you will have to first assert what the type is before you start performing an operation.</p><div class="code-block" data-lang="ts">
+let myVar: unknown = 1;
+
+// Performing type assertions
+if (typeof myVar === &quot;number&quot;) {
+    console.log(myVar+2)
+} else if (typeof myVar === &quot;string&quot;) {
+    console.log(myVar.length);
+}
+</div></section><section class="chapter"><h2 id="type-casting" data-toc="type-casting">type casting</h2><p id="-f4nc80_13">Type casting allows you to tell the compiler to treat a value as a specific type.</p><p id="-f4nc80_14">It&rsquo;s useful when you know more about the type of a value than TypeScript can infer on its own, like when dealing with DOM elements or data from APIs.</p><p id="-f4nc80_15">For example, casting to a number:</p><div class="code-block" data-lang="ts">
+let myVar: unknown = 25;
+const result = (myVar as number) + 25;
+console.log(result);
+</div><p id="-f4nc80_17">Casting to a string:</p><div class="code-block" data-lang="ts">
+let myVar: unknown = 25;
+const result = (myVar as string) + &quot;done&quot;;
+console.log(result);
+</div></section><div class="last-modified">Last modified: 08 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="literals-and-enums.html" class="navigation-links__prev">Literals and Enums</a><a href="optional-chaining-and-bang.html" class="navigation-links__next">Optional Chaining and Bang</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-08T11:54:02.3055767"><title>Classes and Abstract Classes | Instance Name</title><script type="application/json" id="virtual-toc-data">[{"id":"classes","level":0,"title":"Classes","anchor":"#classes"},{"id":"access-modifiers","level":0,"title":"Access modifiers","anchor":"#access-modifiers"},{"id":"abstract-class","level":0,"title":"Abstract class","anchor":"#abstract-class"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Classes and Abstract Classes | Instance Name"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Instance Name Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/classes-and-abstract-classes.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Classes and Abstract Classes | Instance Name"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/classes-and-abstract-classes.html#webpage",
+    "url": "writerside-documentation/classes-and-abstract-classes.html",
+    "name": "Classes and Abstract Classes | Instance Name",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Instance Name Help"
+}</script><!-- End Schema.org --></head><body data-id="Classes-and-Abstract-Classes" data-main-title="Classes and Abstract Classes" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Instance Name  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Classes-and-Abstract-Classes" id="Classes-and-Abstract-Classes.md">Classes and Abstract Classes</h1><section class="chapter"><h2 id="classes" data-toc="classes">Classes</h2><p id="-7gm5rx_6">In JavaScript (and other object-oriented programming languages), a class is a blueprint for creating objects with shared properties and methods.</p><p id="-7gm5rx_7">It serves as a template that allows you to create multiple instances (objects) with the same structure and behavior.</p><p id="-7gm5rx_8">Below is a simple class in TypeScript:</p><div class="code-block" data-lang="ts">
+class Person {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const john = new Person(&quot;John&quot;);
+john.greet();
+</div></section><section class="chapter"><h2 id="access-modifiers" data-toc="access-modifiers">Access modifiers</h2><p id="-7gm5rx_10">In object-oriented programming, access modifiers are keywords that set the accessibility (visibility) of classes, methods, and properties.</p><p id="-7gm5rx_11">They control whether certain elements of a class can be accessed from outside the class or from within other classes, enforcing encapsulation and protecting data integrity.</p><p id="-7gm5rx_12">JavaScript traditionally doesn't have access modifiers like other languages.</p><p id="-7gm5rx_13">TypeScript however supports access modifiers.</p><p id="-7gm5rx_14">The three main access modifiers are <span class="control" id="-7gm5rx_18">public</span>, <span class="control" id="-7gm5rx_19">private</span>, <span class="control" id="-7gm5rx_20">protected</span>.</p><section class="chapter"><h3 id="private" data-toc="private">private</h3><p id="-7gm5rx_21">When we mark a property or method as private, it can only be accessed within the class where it is defined. This restricts direct access from outside the class, promoting encapsulation and safeguarding the data from unintended modifications.</p><div class="code-block" data-lang="ts">
+class Person {
+  private name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+
+  private sayGoodbye(): void {
+    console.log(`Goodbye, this has been ${this.name}`);
+  }
+}
+
+const john = new Person(&quot;John&quot;);
+// THIS WILL NOT WORK
+console.log(john.name);
+// THIS WILL NOT WORK AS WELL
+john.sayGoodbye()
+</div></section><section class="chapter"><h3 id="protected" data-toc="protected">protected</h3><p id="-7gm5rx_23">A modifier that allows a property or method to be accessed within its own class and subclasses, but not from outside.</p><p id="-7gm5rx_24">When you mark a property or a method as protected, it can only be accessed within the class or within the classes that inherit from it but not outside.</p><div class="code-block" data-lang="ts">
+class Person {
+  protected name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+class Social extends Person {
+  sayGoodBye(): void {
+    console.log(`Goodbye, this has been ${this.name}`);
+  }
+}
+
+const s = new Social(&quot;Alice&quot;);
+s.sayGoodBye();
+</div></section><section class="chapter"><h3 id="public" data-toc="public">public</h3><p id="-7gm5rx_26">Public is the default access modifier, which means the property can be accessed from anywhere.</p><div class="code-block" data-lang="ts">
+class Person {
+  name: string;
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  greet(): void {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const john = new Person(&quot;John&quot;);
+john.greet();
+</div></section></section><section class="chapter"><h2 id="abstract-class" data-toc="abstract-class">Abstract class</h2><p id="-7gm5rx_28">Refers to a restricted class that cannot be used to create objects and designed to be specifically used as a base class.</p><p id="-7gm5rx_29">You cannot create an instance of an abstract class, you can extend it, override functionality, but you can't instantiate it.</p><div class="code-block" data-lang="ts">
+abstract class Animal {
+  // all classes inheriting from this abstract
+  // class must implement the method below
+  abstract makeSound(sound: string): void;
+
+  move(): void {
+    console.log(&quot;Moving along...&quot;);
+  }
+}
+
+class Dog extends Animal {
+  makeSound(sound: string): void {
+    console.log(sound);
+  }
+}
+const d = new Dog();
+d.makeSound(&quot;woof woof&quot;);
+d.move();
+
+class Cat extends Animal {
+  makeSound(sound: string): void {
+    console.log(`Cats are cute animals`);
+    console.log(`Their sound can communicate different things`);
+    console.log(`But primarily, a cat ${sound}`);
+  }
+}
+const c = new Cat();
+c.makeSound(&quot;meows&quot;);
+</div></section><div class="last-modified">Last modified: 08 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="interfaces.html" class="navigation-links__prev">Interfaces</a><a href="classes-and-interfaces.html" class="navigation-links__next">Classes and Interfaces</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

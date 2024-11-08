@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-08T11:54:02.3135754"><title>Generics | Instance Name</title><script type="application/json" id="virtual-toc-data">[]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Generics | Instance Name"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Instance Name Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/generics.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Generics | Instance Name"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/generics.html#webpage",
+    "url": "writerside-documentation/generics.html",
+    "name": "Generics | Instance Name",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Instance Name Help"
+}</script><!-- End Schema.org --></head><body data-id="Generics" data-main-title="Generics" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Instance Name  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Generics" id="Generics.md">Generics</h1><p id="a196in_3">Generics allow you to define a placeholder type that can be specified when the construct(eg function, class etc) is used, making the code more flexible and type-safe.</p><p id="a196in_4">Consider the code below:</p><div class="code-block" data-lang="ts">
+class DataStore {
+  private data: number[] = [];
+
+  addItem(item: number): void {
+    this.data.push(item);
+  }
+
+  getItem(idx: number): number | null {
+    if (idx &lt; 0 || idx &gt;= this.data.length) return null;
+    return this.data[idx];
+  }
+
+  getAllItems(): number[] {
+    return this.data;
+  }
+}
+</div><p id="a196in_6">The code above is a 'stupid simple' implementation for a DataStore class that only stores numbers.</p><p id="a196in_7">What if we wanted to now store strings or even booleans? We would have to copy the entire class and maybe start changing the data types. But this is not really what we would want to do, and it doesn't make sense when the only thing we want to change in our class is the type that we are using.</p><p id="a196in_8">We need a way to variably be able to pass in a type and use a different type based on the instance of the class that we need.</p><p id="a196in_9">This is where generics come in.</p><p id="a196in_10">In TypeScript, generics are a way to create reusable components that can work with different data types. Generics allow you to define a placeholder type that can be specified when the component is used, making the code more flexible and type-safe.</p><p id="a196in_11">A generic is defined by placing a type parameter in angle brackets <code class="code" id="a196in_14">&lt;T&gt;</code> after the function, class, or interface name. T is a common placeholder name, but you can use any identifier.</p><div class="code-block" data-lang="ts">
+class DataStore&lt;T&gt; {
+  private data: T[] = [];
+
+  addItem(item: T): void {
+    this.data.push(item);
+  }
+
+  getItem(idx: number): T | null {
+    if (idx &lt; 0 || idx &gt;= this.data.length) return null;
+    return this.data[idx];
+  }
+
+  getAllItems(): T[] {
+    return this.data;
+  }
+}
+
+const names = new DataStore&lt;string&gt;();
+names.addItem(&quot;john&quot;);
+names.addItem(&quot;june&quot;);
+console.log(names.getAllItems());
+
+const numbers = new DataStore&lt;number&gt;();
+numbers.addItem(1);
+numbers.addItem(2);
+console.log(numbers.getAllItems());
+
+interface User {
+  name: string;
+  age: number;
+}
+
+const users = new DataStore&lt;User&gt;();
+users.addItem({ name: &quot;John&quot;, age: 35 });
+users.addItem({ name: &quot;Smith&quot;, age: 43 });
+console.log(users.getAllItems());
+</div><p id="a196in_13">Generics allow us to have more flexibl functions, methods, classes etc that can accept different data types.</p><div class="last-modified">Last modified: 08 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="static-attributes-and-methods.html" class="navigation-links__prev">Static Attributes and Methods</a><a href="type-aliases.html" class="navigation-links__next">Type aliases</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

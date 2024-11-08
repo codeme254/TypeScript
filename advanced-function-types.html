@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-08T11:54:02.2835721"><title>Advanced Function Types | Instance Name</title><script type="application/json" id="virtual-toc-data">[{"id":"rest-parameters","level":0,"title":"Rest parameters","anchor":"#rest-parameters"},{"id":"overloaded-functions","level":0,"title":"Overloaded functions","anchor":"#overloaded-functions"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Advanced Function Types | Instance Name"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Instance Name Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/advanced-function-types.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Advanced Function Types | Instance Name"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/advanced-function-types.html#webpage",
+    "url": "writerside-documentation/advanced-function-types.html",
+    "name": "Advanced Function Types | Instance Name",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Instance Name Help"
+}</script><!-- End Schema.org --></head><body data-id="Advanced-Function-Types" data-main-title="Advanced Function Types" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Instance Name  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Advanced-Function-Types" id="Advanced-Function-Types.md">Advanced Function Types</h1><section class="chapter"><h2 id="rest-parameters" data-toc="rest-parameters">Rest parameters</h2><p id="-wvvb4w_5">Rest parameters in JavaScript allow functions to accept an indefinite number of arguments as an array.</p><p id="-wvvb4w_6">This is helpful when you don't know in advance how many arguments will be passed into the function, or when you want to handle multiple arguments flexibly.</p><div class="code-block" data-lang="ts">
+function sum(...numbers: number[]) {
+  let total: number = 0;
+  for (let i = 0; i &lt; numbers.length; i++) {
+    total += numbers[i];
+  }
+  console.log(total);
+}
+
+sum(4, 5);
+sum(5, 12, 12, 90);
+sum(9);
+</div><div class="code-block" data-lang="ts">
+function greetPeople(...names: string[]) {
+  for (let i = 0; i &lt; names.length; i++) {
+    console.log(`Hello ${names[i]}`);
+  }
+}
+
+greetPeople(&quot;Jack&quot;, &quot;Smith&quot;)
+greetPeople(&quot;John&quot;, &quot;Bill&quot;, &quot;Jane&quot;, &quot;Doe&quot;)
+greetPeople(&quot;Trump&quot;)
+</div></section><section class="chapter"><h2 id="overloaded-functions" data-toc="overloaded-functions">Overloaded functions</h2><p id="-wvvb4w_9">An overloaded function is a function that has different call signatures and can accept different types.</p><p id="-wvvb4w_10">Assuming we want a function that can take in either an array or a string and return a number, we could decide to use a union type as shown below:</p><div class="code-block" data-lang="ts">
+function getLength(param: string | string[]): number {
+  if (typeof param === 'string') return param.length;
+  if (Array.isArray(param)) return param.length;
+  return 0
+}
+
+console.log(getLength(&quot;John Doe&quot;))
+console.log(getLength([&quot;John&quot;, &quot;Doe&quot;, &quot;Jane&quot;, &quot;Doe&quot;]))
+</div><p id="-wvvb4w_12">We can also use overloaded functions as shown below, we start by providing the functions signature and then go ahead to provide their implementation:</p><div class="code-block" data-lang="ts">
+function getLength(name: string): number;
+function getLength(names: string[]): number;
+// implementation of the two above functions
+function getLength(param: unknown): number {
+  if (typeof param === &quot;string&quot;) return param.length;
+  if (Array.isArray(param)) return param.length;
+  return 0;
+}
+
+console.log(getLength(&quot;John Doe&quot;));
+console.log(getLength([&quot;John&quot;, &quot;Doe&quot;, &quot;Jane&quot;, &quot;Doe&quot;]));
+</div></section><div class="last-modified">Last modified: 08 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="function-types.html" class="navigation-links__prev">Function types</a><a href="interfaces.html" class="navigation-links__next">Interfaces</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>

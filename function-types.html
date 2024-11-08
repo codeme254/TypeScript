@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US" data-preset="contrast" data-primary-color="#307FFF"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="robots" content="noindex"><meta name="built-on" content="2024-11-08T11:54:02.3055767"><title>Function types | Instance Name</title><script type="application/json" id="virtual-toc-data">[{"id":"typing-parameters","level":0,"title":"Typing parameters","anchor":"#typing-parameters"},{"id":"specifying-the-type-of-the-return-value","level":0,"title":"Specifying the type of the return value","anchor":"#specifying-the-type-of-the-return-value"},{"id":"specifying-either-of-the-return-types","level":0,"title":"Specifying \u0027either of the return types\u0027","anchor":"#specifying-either-of-the-return-types"},{"id":"marking-a-parameter-as-optional-using","level":0,"title":"Marking a parameter as optional using ?","anchor":"#marking-a-parameter-as-optional-using"},{"id":"typing-callback-functions","level":0,"title":"Typing callback functions","anchor":"#typing-callback-functions"}]</script><script type="application/json" id="topic-shortcuts"></script><link href="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.css" rel="stylesheet"><meta name="msapplication-TileColor" content="#000000"><link rel="apple-touch-icon" sizes="180x180" href="https://jetbrains.com/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="https://jetbrains.com/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://jetbrains.com/favicon-16x16.png"><meta name="msapplication-TileImage" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-144x144.png"><meta name="msapplication-square70x70logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-70x70.png"><meta name="msapplication-square150x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-150x150.png"><meta name="msapplication-wide310x150logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x150.png"><meta name="msapplication-square310x310logo" content="https://resources.jetbrains.com/storage/ui/favicons/mstile-310x310.png"><meta name="image" content=""><!-- Open Graph --><meta property="og:title" content="Function types | Instance Name"><meta property="og:description" content=""><meta property="og:image" content=""><meta property="og:site_name" content="Instance Name Help"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:url" content="writerside-documentation/function-types.html"><!-- End Open Graph --><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content=""><meta name="twitter:title" content="Function types | Instance Name"><meta name="twitter:description" content=""><meta name="twitter:creator" content=""><meta name="twitter:image:src" content=""><!-- End Twitter Card --><!-- Schema.org WebPage --><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "WebPage",
+    "@id": "writerside-documentation/function-types.html#webpage",
+    "url": "writerside-documentation/function-types.html",
+    "name": "Function types | Instance Name",
+    "description": "",
+    "image": "",
+    "inLanguage":"en-US"
+}</script><!-- End Schema.org --><!-- Schema.org WebSite --><script type="application/ld+json">{
+    "@type": "WebSite",
+    "@id": "writerside-documentation/#website",
+    "url": "writerside-documentation/",
+    "name": "Instance Name Help"
+}</script><!-- End Schema.org --></head><body data-id="Function-types" data-main-title="Function types" data-article-props="{&quot;seeAlsoStyle&quot;:&quot;links&quot;}" data-template="article" data-breadcrumbs=""><div class="wrapper"><main class="panel _main"><header class="panel__header"><div class="container"><h3>Instance Name  Help</h3><div class="panel-trigger"></div></div></header><section class="panel__content"><div class="container"><article class="article" data-shortcut-switcher="inactive"><h1 data-toc="Function-types" id="Function-types.md">Function types</h1><section class="chapter"><h2 id="typing-parameters" data-toc="typing-parameters">Typing parameters</h2><div class="code-block" data-lang="ts">
+function add (x: number, y: number) {
+    return x + y;
+}
+</div></section><section class="chapter"><h2 id="specifying-the-type-of-the-return-value" data-toc="specifying-the-type-of-the-return-value">Specifying the type of the return value</h2><div class="code-block" data-lang="ts">
+function add (x: number, y: number): number {
+    return x + y;
+}
+</div></section><section class="chapter"><h2 id="specifying-either-of-the-return-types" data-toc="specifying-either-of-the-return-types">Specifying 'either of the return types'</h2><div class="code-block" data-lang="ts">
+function add (x: number, y: number): number | string {
+    return x + y;
+}
+</div></section><section class="chapter"><h2 id="marking-a-parameter-as-optional-using" data-toc="marking-a-parameter-as-optional-using">Marking a parameter as optional using <code class="code" id="-pavvnt_13">?</code></h2><div class="code-block" data-lang="ts">
+function add (x: number, y: number, z?: number): number | string {
+    console.log(z)
+    return x + y;
+}
+</div></section><section class="chapter"><h2 id="typing-callback-functions" data-toc="typing-callback-functions">Typing callback functions</h2><p id="-pavvnt_14">Use an arrow function, the specify the parameters that the function is to accept, for the return of the function, use the data type that the function is supposed to return.</p><div class="code-block" data-lang="ts">
+function callFunc(
+  callback: (f: string, l: string) =&gt; string,
+  param1: string,
+  param2: string,
+) {}
+</div></section><div class="last-modified">Last modified: 08 November 2024</div><div data-feedback-placeholder="true"></div><div class="navigation-links _bottom"><a href="optional-chaining-and-bang.html" class="navigation-links__prev">Optional Chaining and Bang</a><a href="advanced-function-types.html" class="navigation-links__next">Advanced Function Types</a></div></article><div id="disqus_thread"></div></div></section></main></div><script src="https://resources.jetbrains.com/writerside/apidoc/6.10.0-b419/app.js"></script></body></html>
